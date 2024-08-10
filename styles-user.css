@@ -1,6 +1,9 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     margin: 0;
     padding: 0;
 }
@@ -9,20 +12,20 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: auto;
 }
 
 header {
     text-align: center;
-    background-color: #023047;
+    background-color: #14213D;
     color: white;
-    padding: 20px;
+    padding-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 3em;
     font-weight: bold;
 }
 
@@ -40,7 +43,7 @@ header h3 {
 }
 
 .left-column, .right-column {
-    background-color: #edede9;
+    background-color: white;
     width: 48%;
     display: flex;
     flex-direction: column;
@@ -53,13 +56,14 @@ header h3 {
 
 .left-column h2, .right-column h2 {
     font-size: 2em;
-    color: #333;
+    font-weight: bold;
+    color: #000;
     margin-bottom: 40px;
     text-align: center;
 }
 
 .counter {
-    background-color: #023047;
+    background-color: #E5E5E5;
     border-radius: 10px;
     padding: 15px;
     width: 100%;
@@ -79,9 +83,9 @@ header h3 {
 .counter #selling-counter-number,
 .counter #delivery-counter-number,
 .counter #consultation-counter-number {
-    font-size: 3em;
+    font-size: 4em;
     font-weight: bold;
-    color: white;
+    color: #14213D;
 }
 
 .counter #selling-counter-text,
@@ -118,7 +122,7 @@ header h3 {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 100%;
+    width: auto;
 }
 
 #now-claiming div:hover {
