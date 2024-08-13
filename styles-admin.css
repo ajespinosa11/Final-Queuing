@@ -1,87 +1,179 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
     display: flex;
     width: 100%;
     height: 100vh;
+    gap: 20px; /* Space between the left and right columns */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.left-column, .right-column {
+/* Column Styling */
+ .right-column {
     flex: 1;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #e0e0e0;
     background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 100%; 
 }
 
+.left-column {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    /* Center content vertically and horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ready to Serve Section */
 #ready-to-serve {
     font-size: 2em;
+    font-weight: bold;
     margin-bottom: 20px;
-    padding: 10px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
+    padding: 15px;
+    background-color: #023047;
+    color: white;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure it takes the full width of the column */
 }
 
-/* Styling for Next and Reset buttons */
-button {
-    font-size: 1em;
-    padding: 10px 20px;
-    margin: 10px 0;
+/* Button Styling */
+.next-button,
+.reset-button {
+    font-size: 1.2em; /* Increased font size for better visibility */
+    padding: 15px 30px; /* Increased padding for larger buttons */
+    margin: 20px 0; /* Increased margin for better spacing */
     cursor: pointer;
-    background-color: #007bff; /* Blue */
     color: white;
     border: none;
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    width: 50%; /* Ensure buttons are wide enough */
+    /*max-width: 300px; /* Cap the maximum width for consistency */
 }
 
-button:hover {
+.next-button {
+    background-color: #fb8500; /* Orange */
+}
+
+.next-button:hover {
+    background-color: #ffb703; /* Darker orange on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.next-button:active {
+    background-color: #ffb703; /* Even darker orange when active */
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reset-button {
+    background-color: #007bff; /* Blue */
+}
+
+.reset-button:hover {
     background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Active buttons for Request Ready and Request Complete */
+.reset-button:active {
+    background-color: #004494; /* Even darker blue when active */
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Active Button Styles */
 button.active {
     background-color: #28a745; /* Green */
     color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 button.active:hover {
     background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Disabled buttons for Request Ready and Request Complete */
+button.active:active {
+    background-color: #1e7e34; /* Even darker green when active */
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Disabled Button Styles */
 button.disabled {
     background-color: #ccc; /* Gray */
-    color: #666;
+    color: #4d4c4c;
     cursor: not-allowed;
+    box-shadow: none;
 }
 
-/* Processing Orders */
+/* Processing Orders Section */
 #processing-orders div {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+    color:#fb8500;
+    font-weight: bold;
+    font-size: 25px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Request Ready and Request Complete buttons in Processing Orders */
+/* Request Ready and Request Complete Buttons */
 #processing-orders button {
     margin-left: 10px;
     background-color: #28a745; /* Green */
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #processing-orders button:hover {
     background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+#processing-orders button:active {
+    background-color: #1e7e34; /* Even darker green when active */
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Disabled Buttons in Processing Orders */
 #processing-orders button.disabled {
     background-color: #ccc; /* Gray */
     color: #666;
     cursor: not-allowed;
+    box-shadow: none;
 }
 
 #processing-orders button.active {
