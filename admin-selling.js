@@ -1,6 +1,11 @@
 let sellingCounter = 0;
 
 function nextSellingNumber() {
+    if (sellingCounter >= 20) {
+        alert('The counter number has reached 20. Please reset the counter.');
+        return; // Prevent the function from continuing
+    }
+    
     sellingCounter++;
     const sellingNumber = `MLS00${sellingCounter}`;
     document.getElementById('ready-to-serve').textContent = `Ready to Serve: ${sellingNumber}`;
@@ -10,14 +15,18 @@ function nextSellingNumber() {
 }
 
 function resetSellingNumber() {
-    if (document.getElementById('processing-orders').children.length === 0) {
-        sellingCounter = 0;
-        document.getElementById('ready-to-serve').textContent = 'Ready to Serve: 000';
-        document.getElementById('processing-orders').innerHTML = ''; // Clear the list
-        localStorage.setItem('sellingCounter', '000'); // Reset the counter in localStorage
-        resetNowClaiming(); // Clear the "Now Claiming" section
-        toggleResetButton(); // Check if reset button should be enabled or disabled
+    const ordersDiv = document.getElementById('processing-orders');
+    if (ordersDiv.children.length > 0) {
+        alert('There are still orders to be processed. Please complete all orders before resetting.');
+        return; // Prevent resetting if there are still orders
     }
+    
+    sellingCounter = 0;
+    document.getElementById('ready-to-serve').textContent = 'Ready to Serve: 000';
+    ordersDiv.innerHTML = ''; // Clear the list
+    localStorage.setItem('sellingCounter', '000'); // Reset the counter in localStorage
+    resetNowClaiming(); // Clear the "Now Claiming" section
+    toggleResetButton(); // Check if reset button should be enabled or disabled
 }
 
 function resetNowClaiming() {

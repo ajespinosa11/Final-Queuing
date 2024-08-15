@@ -10,14 +10,18 @@ function nextConsultationNumber() {
 }
 
 function resetConsultationNumber() {
-    if (document.getElementById('processing-orders').children.length === 0) {
-        consultationCounter = 0;
-        document.getElementById('ready-to-serve').textContent = 'Ready to Serve: 000';
-        document.getElementById('processing-orders').innerHTML = ''; // Clear the list
-        localStorage.setItem('consultationCounter', '000'); // Reset the counter in localStorage
-        resetNowClaiming(); // Clear the "Now Claiming" section
-        toggleResetButton(); // Check if reset button should be enabled or disabled
+    const ordersDiv = document.getElementById('processing-orders');
+    if (ordersDiv.children.length > 0) {
+        alert('There are still orders to be processed. Please complete all orders before resetting.');
+        return; // Prevent resetting if there are still orders
     }
+    
+    consultationCounter = 0;
+    document.getElementById('ready-to-serve').textContent = 'Ready to Serve: 000';
+    ordersDiv.innerHTML = ''; // Clear the list
+    localStorage.setItem('consultationCounter', '000'); // Reset the counter in localStorage
+    resetNowClaiming(); // Clear the "Now Claiming" section
+    toggleResetButton(); // Check if reset button should be enabled or disabled
 }
 
 function resetNowClaiming() {
